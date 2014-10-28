@@ -25,7 +25,7 @@ class LogStash::Inputs::Meetup < LogStash::Inputs::Base
   config :venueid, :validate => :string
 
   # The Group ID, multiple may be specified seperated by commas
-  # Must have one of urlname, venue_id, group_id
+  # Must have one of urlname, venueid, groupid
   config :groupid, :validate => :string
 
   # Interval to run the command. Value is in seconds.
@@ -40,18 +40,31 @@ class LogStash::Inputs::Meetup < LogStash::Inputs::Base
   public
   def register
     require "faraday"
+    # group_id
+    if groupid
+	addon = "group_id=#{ @groupid }"
+    # group_urlname
+    elsif urlname
+	addon = "group_urlname=#{ @urlname }"
+    # venue_id
+    elsif venueid
+	addon = "venue_id=#{ @venueid }"
+    else
+    # None Selected, raise an error
+	addon = ""
+    end
+    @url = "https://api.meetup.com/2/events.json?key=#{ @meetupkey }&status=#{ @eventstatus }&#{ addon }"
     @logger.info("Registering meetup Input", :url => @url, :interval => @interval)
   end # def register
 
   public
   def run(queue)
-    url = "https://api.meetup.com/2/events.json?key=#{ @meetupkey }&status=#{ @eventstatus }&group_urlname=#{ @urlname }"
     loop do
       start = Time.now
-      @logger.info? && @logger.info("Polling meetup", :url => url)
+      @logger.info? && @logger.info("Polling meetup", :url => @url)
 
       # Pull down the RSS feed using FTW so we can make use of future cache functions
-      response = Faraday.get url
+      response = Faraday.get @url
       result = JSON.parse(response.body)
 
       result["results"].each do |rawevent| 

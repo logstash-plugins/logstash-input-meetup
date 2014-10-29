@@ -28,7 +28,7 @@ class LogStash::Inputs::Meetup < LogStash::Inputs::Base
   # Must have one of urlname, venueid, groupid
   config :groupid, :validate => :string
 
-  # Interval to run the command. Value is in seconds.
+  # Interval to run the command. Value is in minutes.
   config :interval, :validate => :number, :required => true
 
   # Meetup Key
@@ -63,7 +63,7 @@ class LogStash::Inputs::Meetup < LogStash::Inputs::Base
       start = Time.now
       @logger.info? && @logger.info("Polling meetup", :url => @url)
 
-      # Pull down the RSS feed using FTW so we can make use of future cache functions
+      # Pull down the feed using Faraday
       response = Faraday.get @url
       result = JSON.parse(response.body)
 
@@ -74,8 +74,8 @@ class LogStash::Inputs::Meetup < LogStash::Inputs::Base
         event['time'] = Time.at(event['time'] / 1000, (event['time'] % 1000) * 1000).utc
         event['group']['created'] = Time.at(event['group']['created'] / 1000, (event['group']['created'] % 1000) * 1000).utc
         event['updated'] = Time.at(event['updated'] / 1000, (event['updated'] % 1000) * 1000).utc
-        event['venue']['lonlat'] = [event['venue']['lon'],event['venue']['lat']]
-        event['group']['lonlat'] = [event['group']['lon'],event['group']['lat']]
+	event['venue']['lonlat'] = [event['venue']['lon'],event['venue']['lat']] if rawevent.has_key?('venue')
+        event['group']['lonlat'] = [event['group']['group_lon'],event['group']['group_lat']] if rawevent.has_key?('group')
         decorate(event)
         queue << event
       end
@@ -86,7 +86,7 @@ class LogStash::Inputs::Meetup < LogStash::Inputs::Base
 
       # Sleep for the remainder of the interval, or 0 if the duration ran
       # longer than the interval.
-      sleeptime = [0, @interval - duration].max
+      sleeptime = [0, @interval*60 - duration].max
       if sleeptime == 0
         @logger.warn("Execution ran longer than the interval. Skipping sleep.",
                      :command => @command, :duration => duration,

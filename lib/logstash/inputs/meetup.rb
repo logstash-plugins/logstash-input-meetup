@@ -28,7 +28,7 @@ class LogStash::Inputs::Meetup < LogStash::Inputs::Base
   # Must have one of urlname, venueid, groupid
   config :groupid, :validate => :string
 
-  # Interval to run the command. Value is in minutes.
+  # Interval to run the command. Value is in seconds.
   config :interval, :validate => :number, :required => true
 
   # Meetup Key
@@ -59,11 +59,11 @@ class LogStash::Inputs::Meetup < LogStash::Inputs::Base
 
   public
   def run(queue)
-    loop do
+    Stud.interval(@interval*60) do
       start = Time.now
       @logger.info? && @logger.info("Polling meetup", :url => @url)
 
-      # Pull down the feed using Faraday
+      # Pull down the RSS feed using FTW so we can make use of future cache functions
       response = Faraday.get @url
       result = JSON.parse(response.body)
 
@@ -83,17 +83,6 @@ class LogStash::Inputs::Meetup < LogStash::Inputs::Base
       duration = Time.now - start
       @logger.info? && @logger.info("poll completed", :command => @command,
                                     :duration => duration)
-
-      # Sleep for the remainder of the interval, or 0 if the duration ran
-      # longer than the interval.
-      sleeptime = [0, @interval*60 - duration].max
-      if sleeptime == 0
-        @logger.warn("Execution ran longer than the interval. Skipping sleep.",
-                     :command => @command, :duration => duration,
-                     :interval => @interval)
-      else
-        sleep(sleeptime)
-      end
     end # loop
   end # def run
 end # class LogStash::Inputs::Exec

@@ -7,8 +7,8 @@ require "socket" # for Socket.gethostname
 #
 # Notes:
 #
-# * The '@source' of this event will be the command run.
-# * The '@message' of this event will be the entire stdout of the command
+# * The `@source` of this event will be the command run.
+# * The `@message` of this event will be the entire stdout of the command
 #   as one event.
 #
 class LogStash::Inputs::Meetup < LogStash::Inputs::Base
@@ -16,16 +16,16 @@ class LogStash::Inputs::Meetup < LogStash::Inputs::Base
   config_name "meetup"
   milestone 1
 
-  # URLName - the URL name ie "ElasticSearch-Oklahoma-City"
+  # URLName - the URL name ie `ElasticSearch-Oklahoma-City`
   # Must have one of urlname, venue_id, group_id
   config :urlname, :validate => :string
 
   # The venue ID
-  # Must have one of urlname, venue_id, group_id
+  # Must have one of `urlname`, `venue_id`, `group_id`
   config :venueid, :validate => :string
 
   # The Group ID, multiple may be specified seperated by commas
-  # Must have one of urlname, venueid, groupid
+  # Must have one of `urlname`, `venueid`, `groupid`
   config :groupid, :validate => :string
 
   # Interval to run the command. Value is in seconds.

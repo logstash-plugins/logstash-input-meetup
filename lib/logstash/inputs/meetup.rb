@@ -14,7 +14,6 @@ require "socket" # for Socket.gethostname
 class LogStash::Inputs::Meetup < LogStash::Inputs::Base
 
   config_name "meetup"
-  milestone 1
 
   # URLName - the URL name ie `ElasticSearch-Oklahoma-City`
   # Must have one of urlname, venue_id, group_id

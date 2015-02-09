@@ -69,10 +69,10 @@ class LogStash::Inputs::Meetup < LogStash::Inputs::Base
       result["results"].each do |rawevent| 
         event = LogStash::Event.new(rawevent)
         # Convert the timestamps into Ruby times
-        event['created'] = Time.at(event['created'] / 1000, (event['created'] % 1000) * 1000).utc
-        event['time'] = Time.at(event['time'] / 1000, (event['time'] % 1000) * 1000).utc
-        event['group']['created'] = Time.at(event['group']['created'] / 1000, (event['group']['created'] % 1000) * 1000).utc
-        event['updated'] = Time.at(event['updated'] / 1000, (event['updated'] % 1000) * 1000).utc
+        event['created'] = LogStash::Timestamp.at(event['created'] / 1000, (event['created'] % 1000) * 1000)
+        event['time'] = LogStash::Timestamp.at(event['time'] / 1000, (event['time'] % 1000) * 1000)
+        event['group']['created'] = LogStash::Timestamp.at(event['group']['created'] / 1000, (event['group']['created'] % 1000) * 1000)
+        event['updated'] = LogStash::Timestamp.at(event['updated'] / 1000, (event['updated'] % 1000) * 1000)
 	event['venue']['lonlat'] = [event['venue']['lon'],event['venue']['lat']] if rawevent.has_key?('venue')
         event['group']['lonlat'] = [event['group']['group_lon'],event['group']['group_lat']] if rawevent.has_key?('group')
         decorate(event)

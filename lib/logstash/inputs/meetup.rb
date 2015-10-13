@@ -1,6 +1,7 @@
 # encoding: utf-8
 require "logstash/inputs/base"
 require "logstash/namespace"
+require "logstash/json"
 require "socket" # for Socket.gethostname
 
 # Run command line tools and capture the whole output as an event.
@@ -64,9 +65,13 @@ class LogStash::Inputs::Meetup < LogStash::Inputs::Base
 
       # Pull down the RSS feed using FTW so we can make use of future cache functions
       response = Faraday.get @url
-      result = JSON.parse(response.body)
+      begin
+        result = LogStash::Json.load(response.body)
+      rescue LogStash::Json::ParserError
+        # silently ignore json parsing errors
+      end
 
-      result["results"].each do |rawevent| 
+      result["results"].each do |rawevent|
         event = LogStash::Event.new(rawevent)
         # Convert the timestamps into Ruby times
         event['created'] = LogStash::Timestamp.at(event['created'] / 1000, (event['created'] % 1000) * 1000)

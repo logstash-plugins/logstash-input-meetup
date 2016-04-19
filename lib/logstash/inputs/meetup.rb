@@ -27,7 +27,7 @@ class LogStash::Inputs::Meetup < LogStash::Inputs::Base
   # Must have one of `urlname`, `venueid`, `groupid`
   config :groupid, :validate => :string
 
-  # Interval to run the command. Value is in seconds.
+  # Interval to run the command. Value is in minutes.
   config :interval, :validate => :number, :required => true
 
   # Meetup Key

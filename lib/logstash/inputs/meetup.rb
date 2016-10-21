@@ -4,13 +4,12 @@ require "logstash/namespace"
 require "logstash/json"
 require "socket" # for Socket.gethostname
 
-# Run command line tools and capture the whole output as an event.
+# Periodically query meetup.com regarding updates on events for the given meetupkey
 #
 # Notes:
 #
-# * The `@source` of this event will be the command run.
-# * The `@message` of this event will be the entire stdout of the command
-#   as one event.
+# * The `@meetupkey` represents your meetup.com API key.
+# * The `@interval` defines the execution interval in seconds
 #
 class LogStash::Inputs::Meetup < LogStash::Inputs::Base
 

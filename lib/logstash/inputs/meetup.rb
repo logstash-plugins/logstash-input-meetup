@@ -5,12 +5,6 @@ require "logstash/json"
 require "socket" # for Socket.gethostname
 
 # Periodically query meetup.com regarding updates on events for the given meetupkey
-#
-# Notes:
-#
-# * The `@meetupkey` represents your meetup.com API key.
-# * The `@interval` defines the execution interval in seconds
-#
 class LogStash::Inputs::Meetup < LogStash::Inputs::Base
 
   config_name "meetup"

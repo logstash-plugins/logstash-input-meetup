@@ -1,0 +1,103 @@
+{
+    "results": [
+        {
+            "utc_offset": -18000000,
+            "venue": {
+                "country": "us",
+                "localized_country_name": "USA",
+                "city": "Durham",
+                "address_1": "4613 University Drive – Bldg 450",
+                "name": "BCBSNC ",
+                "lon": -78.966064,
+                "id": 25003187,
+                "state": "NC",
+                "lat": 35.955414,
+                "repinned": false
+            },
+            "headcount": 0,
+            "visibility": "public",
+            "waitlist_count": 0,
+            "created": 1484960943000,
+            "rating": {
+                "count": 7,
+                "average": 3.859999895095825
+            },
+            "maybe_rsvp_count": 0,
+            "description": "<p><b>Join us for our inaugural meetup on Thursday, February 16. Doors will open at 4pm and we'll start talks around 4:30pm. </b></p> <p><br/><b>Thank you to BCBSNC for hosting us! IBM will be presenting.</b></p> <p>--------</p> <p><b>Kibana Globalization</b></p> <p><br/>Adding globalization support to Kibana is a crucial capability which is necessary in all visualization dashboards. This talk will present the design, the road map of delivered and any pending parts, as well as the integration points for stakeholders. It is an exciting journey not to be missed in the growth of Kibana and the Elastic Stack.</p> <p><br/><b>Shikha</b> is a Senior Technical Staff Member (STSM) and a Master Inventor at IBM. She is a lead Connect to Cloud architect where she brings her expertise in architecture, design, leadership towards collaboratively creating innovative pragmatic solutions that leads to enabling Hybrid solution for the clients.</p> <p>\n\nShikha has won awards in innovation and technical achievement. She enjoys leadership role focussed on making things happen and shipping. Shikha is a strong open source advocate focused on building simple tools.<br/>She has worked with several clients across multiple industries including heath, insurance and finance. She has co-presented with client and BPs at conferences has also been invited as guest speaker at customer conferences</p> <p>Shikha lives in Cary, NC with her husband and two son who manage to take up most of her 'free' time.<br/>You can find her on<br/>Twitter: <a href=\"https://twitter.com/shikhasthoughts\"><a href=\"https://twitter.com/shikhasthoughts\" class=\"linkified\">https://twitter.com/shikhasthoughts</a></a><br/>LinkedIn: <a href=\"https://www.linkedin.com/pub/shikha-srivastava/5/9/64\"><a href=\"https://www.linkedin.com/pub/shikha-srivastava/5/9/64\" class=\"linkified\">https://www.linkedin.com/pub/shikha-srivastava/5/9/64</a></a></p> <p><b>IBM Bluemix platform logging with the Elastic Stack</b></p> <p>IBM Bluemix platform logs to Elastic Stacks. Learn about the flexibility of our logging solutions. We'll also share insights to challenges of offering platform logging in multi-tenant environments.</p> <p>Bluemix platform automatically collects many platform logs- no user configuration necessary. We'll talk about and demo how we do this offering a Log Search experience with the ELK stack. We'll cover scale challenges in the cloud and how we are addressing them today. </p> <p><b>Charlie</b> is a Senior Offering Manager at IBM. He is currently Offering lead for Bluemix Log, Monitoring, and Access Trail services. He passionately brings these collective experiences together drawling on his background, including: logging, analytics, and IT service management offerings. </p> <p>Charlie lives in Cary, NC with his wife and son. You can find him on:<br/>Twitter: <a href=\"https://twitter.com/CharlieComiskey\"><a href=\"https://twitter.com/CharlieComiskey\" class=\"linkified\">https://twitter.com/CharlieComiskey</a></a><br/>LinkedIn: <a href=\"http://www.linkedin.com/in/charlie-c\">www.linkedin.com/in/charlie-c </a></p> <p><br/>--------</p> <p><br/><b>I'm new to Elasticsearch. Will this event be good for me?</b></p> <p>Totally. No matter if you are a novice or an old pro, there’s something for everyone at SEARCH.</p> <p><b>What is Elasticsearch?</b></p> <p>The world is swimming in data. For years we have been simply overwhelmed by the quantity of data flowing through and produced by our systems. Existing technology has focused on how to store and structure warehouses full of data. That’s all well and good—until you actually need to make decisions in real time informed by that data.</p> <p>Elasticsearch is a real-time distributed search and analytics engine. It allows you to explore your data at a speed and at a scale never before possible. It is used for full-text search, structured search, analytics, and all three in combination:</p> <p>Wikipedia uses Elasticsearch to provide full-text search with highlighted search snippets, and search-as-you-type and did-you-mean suggestions.The Guardian uses Elasticsearch to combine visitor logs with social -network data to provide real-time feedback to its editors about the public’s response to new articles.Stack Overflow combines full-text search with geolocation queries and uses more-like-this to find related questions and answers.Netflix uses it for personalized recommendation and search millions of videos.GitHub uses Elasticsearch to query 130 billion lines of code.</p> <p><b>Can I bring a friend?</b></p> <p>Sure... Everyone is welcome! Just make sure you register for all attendees you plan to bring with you before Tuesday, 02/14/17.</p> <p><b>Will there be food?</b></p> <p>Yes! We will have a yummy selection of pizzas and beverages to help keep your energy and focus on the great technology content and networking opportunity.</p> <p><b>What are my transport/parking options getting to the event?</b></p> <p>Parking is available in the open surface parking lot across from building 450. </p> <p>Take I-40 to exit 270. Turn onto US 15/501(Durham-Chapel Hill Blvd.) headed toward Durham. Follow Durham-Chapel Hill Blvd. past Garrett Road. Stay in right two lanes and bear right to US 15/501 North. Immediately stay in right lane and bear right onto Martin Luther King, Jr. Pkwy. Turn right at the first traffic light onto University Drive. Turn left at the second light which is University Place. Building 450 will be the 2nd turn off on your right. </p> <p><b>Where can I contact the organizer with any questions?</b></p> <p>Please contact Nitin Kadam with any questions: <a href=\"mailto:[masked]\">[masked]</a></p> <p>If you're interested in speaking at a future meetup, email us at [masked]. </p>",
+            "how_to_find_us": "450 Auditorium:  CR-450-1870/1880/1890 (1st floor)   You will need to sign in at the security guest in the main lobby when entering building 450.",
+            "event_url": "https://www.meetup.com/Elastic-Triangle-User-Group/events/237083007/",
+            "yes_rsvp_count": 92,
+            "name": "Inaugural Elastic Triangle meetup",
+            "id": "237083007",
+            "time": 1487278800000,
+            "updated": 1492650351000,
+            "group": {
+                "join_mode": "open",
+                "created": 1484762789000,
+                "name": "Elastic Triangle User Group",
+                "group_lon": -78.9000015258789,
+                "id": 21979256,
+                "urlname": "Elastic-Triangle-User-Group",
+                "group_lat": 36,
+                "who": "Elastic Fantastics"
+            },
+            "status": "past"
+        },
+        {
+            "utc_offset": -14400000,
+            "venue": {
+                "country": "us",
+                "localized_country_name": "USA",
+                "city": "Durham",
+                "address_1": "4613 University Drive – Bldg 450",
+                "name": "BCBSNC ",
+                "lon": -78.966064,
+                "id": 25003187,
+                "state": "NC",
+                "lat": 35.955414,
+                "repinned": false
+            },
+            "headcount": 0,
+            "visibility": "public",
+            "waitlist_count": 0,
+            "created": 1492246911000,
+            "rating": {
+                "count": 2,
+                "average": 5
+            },
+            "maybe_rsvp_count": 0,
+            "description": "<p><b>Agenda:</b></p> <p>• 5:30 PM - <b>Pizza and Networking</b></p> <p>• 6:00-6:45 PM - <b>Talk#1: Gather 'round and hear the story of Painless!</b></p> <p>• 6:45-7:30 PM - <b>Talk#2: Learn how Bitly uses ElasticSearch</b></p> <p>• 7:30 PM - <b>Open Discussion</b></p> <p><b>We have a great inaugural meetup back in February and we are excited to be hosting our second meetup for the Elastic Triangle user group on Thursday, April 27.  </b></p> <p><b>Talk#1: Gather 'round and hear the story of Painless!</b></p> <p>Back in the pre-5.0 dark ages, Elasticsearch lacked a secure scripting language. And the people were sad! But our hero Painless came in 5.0, the shining new default, careful, quick, and kind. Ever watchful of its whitelist and loop counters, Painless protects Elasticsearch from malign mandate, inadvertent or iniquitous.</p> <p>Gather and hear of Painless' guiding principles, see the features they represent, and, time permitting, discuss Painless' future.</p> <p><b>Nik Everett</b> is an Elasticsearch Engineer based in North Carolina. Before joining Elastic, Nik worked for the Wikimedia Foundation building on site search for Wikipedia with Elasticsearch.</p> <p><b>Talk#2: Learn how Bitly uses ElasticSearch</b></p> <p>Learn how Bitly uses ElasticSearch to power not just standard search and retrieval of your shortened URLs, but also how we use the aggregations' feature of ElasticSearch to provide up-to-date analytic information on how engaged your target audience is with your content, across the internet at large. We’ll dive into how Bitly uses custom schemas to enable search, and into the details of how Bitly constructs aggregate queries for counting and categorizing. </p> <p><br/><b>Peter Herndon</b> is a Senior Application Engineer at Bitly, where he helps keep links short and smart. Working primarily on back-end systems, he uses an awful lot of open source software and occasionally contributes a bit of working code. Prior to joining Bitly, he worked briefly in the New York startup world, and for a much longer time at Memorial Sloan-Kettering Cancer Center as a developer and systems administrator. His main passion is designing and building distributed systems, and his main extracurricular hobby is learning and teaching martial arts.</p>",
+            "event_url": "https://www.meetup.com/Elastic-Triangle-User-Group/events/239230863/",
+            "yes_rsvp_count": 44,
+            "name": "Painless: Elasticsearch's new scripting language & Learn how Bitly uses Elastic",
+            "id": "239230863",
+            "time": 1493328600000,
+            "updated": 1493382683000,
+            "group": {
+                "join_mode": "open",
+                "created": 1484762789000,
+                "name": "Elastic Triangle User Group",
+                "group_lon": -78.9000015258789,
+                "id": 21979256,
+                "urlname": "Elastic-Triangle-User-Group",
+                "group_lat": 36,
+                "who": "Elastic Fantastics"
+            },
+            "status": "past"
+        }
+    ],
+    "meta": {
+        "next": "",
+        "method": "Events",
+        "total_count": 2,
+        "link": "https://api.meetup.com/2/events.json",
+        "count": 2,
+        "description": "Access Meetup events using a group, member, or event id. Events in private groups are available only to authenticated members of those groups. To search events by topic or location, see [Open Events](/meetup_api/docs/2/open_events).",
+        "lon": "",
+        "title": "Meetup Events v2",
+        "url": "https://api.meetup.com/2/events.json?offset=0&format=json&limited_events=False&group_id=21979256&page=200&fields=&key=551f79233a251a351215671b7a60&order=time&status=upcoming%2Cpast&desc=false",
+        "id": "",
+        "updated": 1493382683000,
+        "lat": ""
+    }
+}

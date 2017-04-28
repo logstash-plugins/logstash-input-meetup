@@ -71,8 +71,8 @@ class LogStash::Inputs::Meetup < LogStash::Inputs::Base
         event.set('time', LogStash::Timestamp.at(event.get('time') / 1000, (event.get('time') % 1000) * 1000))
         event.set('[group][created]', LogStash::Timestamp.at(event.get('group][created]') / 1000, (event.get('group][created]') % 1000) * 1000))
         event.set('updated', LogStash::Timestamp.at(event.get('updated') / 1000, (event.get('updated') % 1000) * 1000))
-        event.set('[venue][lonlat]', [event.get('[venue][lon]'), event.get('[venue][lat]') if rawevent.has_key?('venue'))
-        event.set('[group][lonlat]', [event.get('[group][group_lon]',event'[group][group_lat]') if rawevent.has_key?('group'))
+        event.set('[venue][lonlat]', [event.get('[venue][lon]'), event.get('[venue][lat]')]) if rawevent.has_key?('venue')
+        event.set('[group][lonlat]', [event.get('[group][group_lon]'),event.get('[group][group_lat]')]) if rawevent.has_key?('group')
         decorate(event)
         queue << event
       end

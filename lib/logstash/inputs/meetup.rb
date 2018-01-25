@@ -25,7 +25,7 @@ class LogStash::Inputs::Meetup < LogStash::Inputs::Base
   config :interval, :validate => :number, :required => true
 
   # Meetup Key
-  config :meetupkey, :validate => :string, :required => true
+  config :meetupkey, :validate => :password, :required => true
 
   # Event Status'
   config :eventstatus, :validate => :string, :default => "upcoming,past"
@@ -44,10 +44,11 @@ class LogStash::Inputs::Meetup < LogStash::Inputs::Base
 	addon = "venue_id=#{ @venueid }"
     else
     # None Selected, raise an error
+    raise "Configuration error! -  Must have one of `urlname`, `venue_id`, or `group_id` defined"
 	addon = ""
     end
-    @url = "https://api.meetup.com/2/events.json?key=#{ @meetupkey }&status=#{ @eventstatus }&#{ addon }"
-    @logger.info("Registering meetup Input", :url => @url, :interval => @interval)
+    @url = "https://api.meetup.com/2/events.json?key=#{ @meetupkey.value }&status=#{ @eventstatus }&#{ addon }"
+    @logger.info("Registering meetup Input", :url => @url.gsub(@meetupkey.value, "xxxx"), :interval => @interval)
   end # def register
 
   public
@@ -58,10 +59,12 @@ class LogStash::Inputs::Meetup < LogStash::Inputs::Base
 
       # Pull down the RSS feed using FTW so we can make use of future cache functions
       response = Faraday.get @url
+      logger.error("Error call meetup API: " + response.body) unless response.status.eql?(200)
       begin
         result = LogStash::Json.load(response.body)
-      rescue LogStash::Json::ParserError
-        # silently ignore json parsing errors
+      rescue LogStash::Json::ParserError => e
+        # ignore json parsing errors
+        logger.debug("Error parsing Json", :message => e.message, :backtrace => e.backtrace)
       end
 
       result["results"].each do |rawevent|

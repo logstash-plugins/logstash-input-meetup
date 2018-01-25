@@ -1,3 +1,7 @@
+## 3.0.4
+  - Fix syntax errors (tylerjl) [#11](https://github.com/logstash-plugins/logstash-input-meetup/pull/11)
+  - Minor logging and validation updates
+
 ## 3.0.3
   - Update gemspec summary
 

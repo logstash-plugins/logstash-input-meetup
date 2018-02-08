@@ -41,7 +41,7 @@ class LogStash::Inputs::Meetup < LogStash::Inputs::Base
     if text
       # do this
         addon = "text=#{ @text }&and_text=true"
-        @url = "https://api.meetup.com/2/open_events.json?key=#{ @meetupkey }&#{ addon }"
+        @url = "https://api.meetup.com/2/open_events.json?key=#{ @meetupkey.value }&#{ addon }"
     else
         # group_id
       if groupid
@@ -82,9 +82,11 @@ class LogStash::Inputs::Meetup < LogStash::Inputs::Base
 
       result["results"].each do |rawevent|
         # handling MU's "relevant" but not matching results
-        next if rawevent['description'].nil? 
-        next unless rawevent['description'].downcase.include? @text.downcase
-
+        if text
+          next if rawevent['description'].nil? 
+          next unless rawevent['description'].downcase.include? @text.downcase
+        end
+        
         event = LogStash::Event.new(rawevent)
         # Convert the timestamps into Ruby times
         event.set('created', LogStash::Timestamp.at(event.get('created') / 1000, (event.get('created') % 1000) * 1000))

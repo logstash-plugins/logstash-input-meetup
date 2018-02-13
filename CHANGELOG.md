@@ -1,3 +1,6 @@
+## 3.1.0
+  - Add support for text search (siobahnv) [#13](https://github.com/logstash-plugins/logstash-input-meetup/pull/13)
+
 ## 3.0.4
   - Fix syntax errors (tylerjl) [#11](https://github.com/logstash-plugins/logstash-input-meetup/pull/11)
   - Minor logging and validation updates
